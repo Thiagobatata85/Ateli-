@@ -4,15 +4,42 @@
 <head>
     <title>Página de Entrada</title>
     <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
         .container {
             text-align: center;
             margin-top: 100px;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: #45A049;
+        }
+
+        .greeting {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .input-container {
+            margin-top: 20px;
         }
 
         input[type="email"] {
             width: 300px;
             padding: 10px;
             margin: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
         }
 
         .green-button {
@@ -20,25 +47,68 @@
             color: white;
             padding: 10px 20px;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
+        }
+
+        .green-button:hover {
+            background-color: #45A049;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .forgot-password a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            color: #45A049;
+        }
+
+        .back-button-container {
+            margin-top: 20px;
+        }
+
+        .back-button {
+            background-color: #ccc;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #999;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <a href="pagina_atelie.html"><strong>ATELIÊ</strong></a>
-        <p>OLÁ</p>
+        <a href="#" class="logo">ATELIÊ</a>
+        <p class="greeting">OLÁ</p>
         <p>Para continuar, digite seu email:</p>
-        <form>
+        <div class="input-container">
             <input type="email" id="email" placeholder="Digite seu email" required>
             <br>
-            <span id="email-error" style="color: red;"></span>
-            <br>
-            <a href="pagina_cadastro.html">Esqueci a senha</a>
+            <span class="error-message" id="email-error"></span>
             <br>
             <button class="green-button" onclick="validarEmail()">Continuar</button>
-        </form>
+        </div>
+        <p class="forgot-password"><a href="pagina_cadastro.html">Esqueci a senha</a></p>
+        <div class="back-button-container">
+            
+            <a class="back-button" href="atelie.html">Voltar para o Ateliê</a>
+        </div>
     </div>
 
     <script>
@@ -60,7 +130,11 @@
                 emailError.textContent = "Email inválido. Por favor, verifique o formato do email.";
             }
         }
+
+    
+        }
     </script>
 </body>
 
 </html>
+
