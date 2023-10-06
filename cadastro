@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cadastro de Usuário</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            width: 300px;
+        }
+
+        .header {
+            font-size: 24px;
+        }
+
+        .dados-pessoais {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        input[type="text"][name="cpf"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">Cadastre-se</div>
+        <div class="dados-pessoais">DADOS PESSOAIS</div>
+        <form id="cadastro-form" action="processar_cadastro.php" method="post">
+            <input type="text" name="nome" placeholder="Nome Completo" required>
+            <br>
+            <input type="text" name="data_nascimento" placeholder="Data de Nascimento (dd/mm/aaaa)" pattern="\d{2}/\d{2}/\d{4}" required>
+            <br>
+            <input type="text" name="cpf" placeholder="CPF (000.000.000-00)" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+            <br>
+            <input type="email" name="email" placeholder="Email" required>
+            <br>
+            <input type="tel" name="telefone" placeholder="Telefone (00)00000-0000" pattern="\(\d{2}\)\d{5}-\d{4}" required>
+            <br>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <br>
+            <input type="password" name="confirmar_senha" placeholder="Confirmação de Senha" required>
+            <br>
+            <div class="error-message" id="senha-error"></div>
+            <br>
+            <button class="submit-button" onclick="validarSenha()">Cadastrar</button>
+        </form>
+    </div>
+
+    <script>
+        function validarSenha() {
+            var senha = document.getElementsByName("senha")[0].value;
+            var confirmarSenha = document.getElementsByName("confirmar_senha")[0].value;
+            var senhaError = document.getElementById("senha-error");
+
+            if (senha !== confirmarSenha) {
+                senhaError.textContent = "As senhas não coincidem. Por favor, verifique.";
+            } else {
+                senhaError.textContent = "";
+                document.getElementById("cadastro-form").submit();
+            }
+        }
+    </script>
+</body>
+
+</html>
