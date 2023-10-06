@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Página de Entrada</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        input[type="email"] {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .green-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="pagina_atelie.html"><strong>ATELIÊ</strong></a>
+        <p>OLÁ</p>
+        <p>Para continuar, digite seu email:</p>
+        <form>
+            <input type="email" id="email" placeholder="Digite seu email" required>
+            <br>
+            <span id="email-error" style="color: red;"></span>
+            <br>
+            <a href="pagina_cadastro.html">Esqueci a senha</a>
+            <br>
+            <button class="green-button" onclick="validarEmail()">Continuar</button>
+        </form>
+    </div>
+
+    <script>
+        function validarEmail() {
+            var emailInput = document.getElementById("email");
+            var emailError = document.getElementById("email-error");
+            var email = emailInput.value;
+
+            // Expressão regular para validar o formato de email
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+            if (emailRegex.test(email)) {
+                // Email válido
+                emailError.textContent = "";
+                // Redirecionar para a próxima página, se desejado
+                // window.location.href = "pagina_seguinte.html";
+            } else {
+                // Email inválido
+                emailError.textContent = "Email inválido. Por favor, verifique o formato do email.";
+            }
+        }
+    </script>
+</body>
+
+</html>
