@@ -1,11 +1,117 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Minha Conta</title>
+    <title>Página de Entrada</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: #45A049;
+        }
+
+        .greeting {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .input-container {
+            margin-top: 20px;
+        }
+
+        input[type="email"] {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+        }
+
+        .green-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .green-button:hover {
+            background-color: #45A049;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .forgot-password a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            color: #45A049;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Dados da Conta do Usuário</h1>
-    <p>Aqui estão os detalhes da sua conta:</p>
-    <!-- Inclua aqui os detalhes da conta do usuário, como nome, email, etc. -->
+    <div class="container">
+        <a href="#" class="logo">ATELIÊ</a>
+        <p class="greeting">OLÁ</p>
+        <p>Para continuar, digite seu email:</p>
+        <div class="input-container">
+            <input type="email" id="email" placeholder="Digite seu email" required>
+            <br>
+            <span class="error-message" id="email-error"></span>
+            <br>
+            <button class="green-button" onclick="validarEmail()">Continuar</button>
+        </div>
+        <p class="forgot-password"><a href="pagina_cadastro.html">Esqueci a senha</a></p>
+        <a class="back-button" href="atelie.html">Voltar para o Ateliê</a>
+    </div>
+
+    <script>
+        function validarEmail() {
+            var emailInput = document.getElementById("email");
+            var emailError = document.getElementById("email-error");
+            var email = emailInput.value;
+
+            // Expressão regular para validar o formato de email
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+            if (emailRegex.test(email)) {
+                // Email válido
+                emailError.textContent = "";
+                // Redirecionar para a próxima página, se desejado
+                // window.location.href = "pagina_seguinte.html";
+            } else {
+                // Email inválido
+                emailError.textContent = "Email inválido. Por favor, verifique o formato do email.";
+            }
+        }
+       
+    </script>
 </body>
+
 </html>
