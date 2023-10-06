@@ -137,7 +137,7 @@
             <br>
             <button class="submit-button" onclick="validarSenha()">Cadastrar</button>
         </form>
-        
+        <a class="back-button" href="atelie.html">Voltar para o Ateliê</a>
     </div>
 
     <script>
@@ -157,4 +157,3 @@
 </body>
 
 </html>
-
