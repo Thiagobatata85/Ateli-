@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minha Conta</title>
+</head>
+<body>
+    <h1>Dados da Conta do Usuário</h1>
+    <p>Aqui estão os detalhes da sua conta:</p>
+    <!-- Inclua aqui os detalhes da conta do usuário, como nome, email, etc. -->
+</body>
+</html>
